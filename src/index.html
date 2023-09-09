@@ -6,6 +6,24 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src='https://hypertest.vimuthtweet.workers.dev/' type="text/javascript" ></script>
+  <script type="text/javascript">
+    function onloadFunction() {
+      HYPERSNIPPET.initURL(["734633cc-8597-430c-ad19-a2f2abc47148","c8911559-816a-43ba-8402-015d71a3a6b4"]);
+    }
+    window.onload = onloadFunction()
+    document.onclick = function (event) {
+      HYPERSNIPPET.analyzer(event, sessionStorage.getItem("key"), isLoadedForClick);
+    }
+    window.addEventListener("beforeunload", function (e) {
+      e.preventDefault();
+    })
+    const originalPush = window.history.pushState;
+    window.history.pushState = function () {
+      originalPush.apply(window.history, arguments);
+      HYPERSNIPPET.initURLSinglePage(["734633cc-8597-430c-ad19-a2f2abc47148","c8911559-816a-43ba-8402-015d71a3a6b4"]);
+    }
+  </script>
 </head>
 <body>
   <app-root></app-root>
